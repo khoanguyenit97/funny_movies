@@ -1,4 +1,4 @@
-class CreateUsersMovie < ActiveRecord::Migration[6.1]
+class CreateUserMovie < ActiveRecord::Migration[6.1]
   def change
     create_table :user_movies do |t|
       t.integer :user_id
