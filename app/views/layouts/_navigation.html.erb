@@ -1,3 +1,4 @@
+<%#= link_to "Chatroom", root_path,  class: "item" %>
 <div class="left menu" id="logo">
   <div class="ui grid">
     <i class="orange film icon" ></i>
@@ -6,8 +7,9 @@
 </div>
 <div class="right menu">
   <div class="ui item">
+    <% if logged_in? %>
       <div class="item">
-        <p>Welcome KhoaNguyen</p>
+        <p>Welcome <%= current_user.username %></p>
       </div>
       <div class="item">
         <%= link_to "Share a movie", "#", class: "ui primary button" %>
@@ -15,6 +17,8 @@
       <div class="item">
         <%= link_to "Log out", logout_path, method: :delete,  class: "ui primary button" %>
       </div>
+    <% else %>
       <%= link_to "Login/Register", login_path, class: "ui primary button" %>
+    <% end %>
   </div>
 </div>
