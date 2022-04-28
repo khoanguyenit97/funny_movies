@@ -1,0 +1,5 @@
+<div class="field_message">
+  <% if obj.errors.key?(field) %>
+    <%= obj.errors.full_messages_for(field).join(', ') %>
+  <% end %>
+</div>
