@@ -21,16 +21,16 @@ ActiveRecord::Schema.define(version: 2022_04_28_104733) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", id: :bigint, default: -> { "nextval('create_users_id_seq'::regclass)" }, force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
+  create_table "user_movies", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "movie_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users_movies", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "movie_id"
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
