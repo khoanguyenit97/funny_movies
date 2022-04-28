@@ -10,14 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_28_091952) do
+ActiveRecord::Schema.define(version: 2022_04_28_104733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "create_users", force: :cascade do |t|
+  create_table "movies", force: :cascade do |t|
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", id: :bigint, default: -> { "nextval('create_users_id_seq'::regclass)" }, force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users_movies", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "movie_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
